@@ -1,0 +1,16 @@
+{
+    "name": "omnipro/base",
+    "description": "",
+    "type": "magento2-module",
+    "license": [
+      "MIT"
+    ],
+    "autoload": {
+      "psr-4": {
+        "Omnipro\\Base\\": ""
+      },
+      "files": [
+        "registration.php"
+      ]
+    }
+  }

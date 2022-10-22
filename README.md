@@ -1,1 +1,0 @@
-# seminario-modulo-base-v1

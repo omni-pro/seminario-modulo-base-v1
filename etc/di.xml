@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Preferences -->
+    <preference for="Omnipro\Base\Api\ClientInterface" type="Omnipro\Base\Model\CurlRestClient" />
+
+    <!-- Loggers -->
+    <virtualType name="CurlRestClientLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/omnipro/curl-rest-client.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CurlRestClientLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">CurlRestClientLoggerHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Omnipro\Base\Model\CurlRestClient">
+        <arguments>
+            <argument name="logger" xsi:type="object">CurlRestClientLogger</argument>
+        </arguments>
+    </type>
+</config>

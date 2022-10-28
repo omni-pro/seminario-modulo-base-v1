@@ -1,0 +1,34 @@
+<div id="container-messages" data-bind="scope: 'container-messages'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#container-messages": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "container-messages": {
+                            "component": "Magento_Ui/js/view/messages"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+<div id="container-operations" data-bind="scope: 'container-operations'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#container-operations": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "container-operations": {
+                            "component": "Omnipro_Base/js/operations"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>

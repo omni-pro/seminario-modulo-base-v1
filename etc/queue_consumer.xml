@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <consumer name="omnipro.async.operations.all" queue="omnipro.async.operations.all" connection="amqp" handler="Omnipro\Base\Model\Async\Consumer::consume" />
+    <consumer name="omnipro.async.operations.process.text" queue="omnipro.async.operations.process.text" connection="amqp" handler="Omnipro\Base\Model\Async\TextConsumer::consume" />
+</config>

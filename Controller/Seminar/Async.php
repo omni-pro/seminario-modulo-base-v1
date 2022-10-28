@@ -6,11 +6,11 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
 /**
- * Index Controller
+ * Async controller
  *
  * @author Daniel Antonio Moreno Ramirez <daniel.moreno@omni.pro>
  */
-class Index implements HttpGetActionInterface
+class Async implements HttpGetActionInterface
 {
     /**
      * @var PageFactory

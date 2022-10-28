@@ -10,7 +10,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Client Implementation with Curl
- * 
+ *
  * @author Daniel Antonio Moreno Ramirez <daniel.moreno@omni.pro>
  */
 class CurlRestClient implements ClientInterface
@@ -62,7 +62,7 @@ class CurlRestClient implements ClientInterface
     /**
      * @inheritDoc
      */
-    public function doGet($url, $headers): array
+    public function doGet($url, $headers = null): array
     {
         $this->curl->setOptions($this->getCurlOptions($headers, self::HTTP_METHOD_GET));
         $this->curl->get($url);

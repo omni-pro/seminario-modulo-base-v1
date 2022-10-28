@@ -7,14 +7,14 @@ use Magento\Store\Model\ScopeInterface;
 
 /**
  * Config Model
- * 
+ *
  * @author Daniel Antonio Moreno Ramirez <daniel.moreno@omni.pro>
  */
 class Config
 {
 
     private const XML_CONFIG_ENABLE = 'omnipro_base/general/enable';
-    
+
     private const XML_CONFIG_DEBUG_ENABLE = 'omnipro_base/http_client/debug_requests_enable';
 
     /**

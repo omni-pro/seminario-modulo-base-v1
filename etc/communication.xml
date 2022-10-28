@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="omnipro.#" request="Omnipro\Base\Api\Data\MessageInterface"/>
+    <topic name="omnipro.async.process.text" request="Omnipro\Base\Api\Data\MessageInterface"/>        
+</config>

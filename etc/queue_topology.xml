@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="omnipro" connection="amqp" type="topic">
+        <binding id="omnipro.async.operations.all" topic="omnipro.#" destinationType="queue" destination="omnipro.async.operations.all" />
+        <binding id="omnipro.async.operations.process.text" topic="omnipro.async.process.text" destinationType="queue" destination="omnipro.async.operations.process.text" />
+    </exchange>
+</config>

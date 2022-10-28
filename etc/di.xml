@@ -2,6 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Preferences -->
     <preference for="Omnipro\Base\Api\ClientInterface" type="Omnipro\Base\Model\CurlRestClient" />
+    <!-- Preference -->
+    <preference for="Omnipro\Base\Api\Data\MessageInterface" type="Omnipro\Base\Model\Data\Message" />
+    <preference for="Omnipro\Base\Api\Async\PublisherInterface" type="Omnipro\Base\Model\Async\Publisher" />
+    <preference for="Omnipro\Base\Api\Management\TextLogProcessorInterface" type="Omnipro\Base\Model\Management\TextLogProcessor" />
 
     <!-- Loggers -->
     <virtualType name="CurlRestClientLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
@@ -19,6 +23,47 @@
     <type name="Omnipro\Base\Model\CurlRestClient">
         <arguments>
             <argument name="logger" xsi:type="object">CurlRestClientLogger</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AsyncExampleConsumerLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/omnipro/async-example-consumer.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AsyncExampleConsumerLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">AsyncExampleConsumerLoggerHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Omnipro\Base\Model\Async\Consumer">
+        <arguments>
+            <argument name="logger" xsi:type="object">AsyncExampleConsumerLogger</argument>
+        </arguments>
+    </type>
+    <type name="Omnipro\Base\Model\Async\TextConsumer">
+        <arguments>
+            <argument name="logger" xsi:type="object">AsyncExampleConsumerLogger</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AsyncExampleProcessorLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/omnipro/async-example-processor.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AsyncExampleProcessorLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">AsyncExampleProcessorLoggerHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Omnipro\Base\Model\Management\TextLogProcessor">
+        <arguments>
+            <argument name="logger" xsi:type="object">AsyncExampleProcessorLogger</argument>
         </arguments>
     </type>
 </config>

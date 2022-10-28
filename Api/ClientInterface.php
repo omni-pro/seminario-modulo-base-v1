@@ -3,9 +3,10 @@
 namespace Omnipro\Base\Api;
 
 /**
- * Client Interface
- * 
+ * Client Interface for HTTP Client
+ *
  * @author Daniel Antonio Moreno Ramirez <daniel.moreno@omni.pro>
+ * @author Leonardo <leonardo>
  */
 interface ClientInterface
 {
@@ -13,18 +14,18 @@ interface ClientInterface
      * Do get request
      *
      * @param string $url
-     * @param array $headers
-     * @return array
+     * @param string[] $headers
+     * @return string[]
      */
-    public function doGet($url, $headers): array;
+    public function doGet($url, $headers = null): array;
 
     /**
      * Do post request
      *
      * @param string $url
-     * @param array $headers
-     * @param array|string $body
-     * @return array
+     * @param string[] $headers
+     * @param string[]|string $body
+     * @return string[]
      */
     public function doPost($url, $headers, $body): array;
 }
